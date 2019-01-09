@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Costa Rica Weather!</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Costa Rica Weather</h1>
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">
+          Get Forecast!
+        </a>
+      </div>
+      <div class="card-columns">
+        {% for forecast in forecasts %}
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              {{ forecast.location }}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Min Temp: {{ forecast.min_temp }}</li>
+              <li class="list-group-item">Max Temp: {{ forecast.max_temp }}</li>
+              <li class="list-group-item">
+                Surf: {{ forecast.surf_spot }} | {{ forecast.surf_height }}
+              </li>
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+
+</html>
